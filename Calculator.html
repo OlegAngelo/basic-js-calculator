@@ -35,14 +35,14 @@
             <button value="4" class="btn btn-dark" onclick="appendNumber(this.value)">4</button>
             <button value="5" class="btn btn-dark" onclick="appendNumber(this.value)">5</button>
             <button value="6" class="btn btn-dark" onclick="appendNumber(this.value)">6</button>
-            <button class="btn btn-dark">x</button>
+            <button class="btn btn-dark" onclick="cmdMultiply()">x</button>
 
             <br>
 
             <button value="1" class="btn btn-dark" onclick="appendNumber(this.value)">1</button>
             <button value="2" class="btn btn-dark" onclick="appendNumber(this.value)">2</button>
             <button value="3" class="btn btn-dark" onclick="appendNumber(this.value)">3</button>
-            <button class="btn btn-dark" onclick="">-</button>
+            <button class="btn btn-dark">-</button>
 
             <br>
 
@@ -55,13 +55,14 @@
     <script>
         var dispNum = 0;
         var textNum = null;
-        
+
         function appendNumber(num){
 
-            if(textNum==null)
+            if(textNum == null)
                 textNum = num;
             else
                 textNum += num;
+        
 
             document.getElementById('displayNum').innerHTML = textNum;
             console.log(textNum);
@@ -70,7 +71,7 @@
         function cmdCancel(){
             dispNum = 0;
             textNum = null;
-            document.getElementById('displayNum').innerHTML = "&nbsp;";
+            document.getElementById('displayNum').innerHTML = "&nbsp";
         }
 
         function cmdEquals(){
@@ -83,6 +84,13 @@
             dispNum = dispNum + newNum;
             textNum = null;
             document.getElementById('displayNum').innerHTML = "&nbsp;"; //&nbsp is added so that the h1 element on the body will exist/displayed.
+        }
+
+        function cmdMultiply(){
+            var newNum = parseInt(textNum);
+            dispNum = dispNum * newNum;
+            textNum = null;
+            document.getElementById('displayNum').innerHTML = "&nbsp;";
         }
     </script>
 </body>
