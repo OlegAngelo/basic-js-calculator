@@ -42,7 +42,7 @@
             <button value="1" class="btn btn-dark" onclick="appendNumber(this.value)">1</button>
             <button value="2" class="btn btn-dark" onclick="appendNumber(this.value)">2</button>
             <button value="3" class="btn btn-dark" onclick="appendNumber(this.value)">3</button>
-            <button class="btn btn-dark">-</button>
+            <button class="btn btn-dark" onclick="cmdMinus()">-</button>
 
             <br>
 
@@ -58,10 +58,10 @@
 
         function appendNumber(num){
 
-            if(textNum == null)
-                textNum = num;
-            else
-                textNum += num;
+            if(textNum == null) // true pa na null
+                textNum = num; //1
+            else 
+                textNum += num; //textNum = textNum + num because of string maong ge parseInt ang textNum ex. 88 99 100
         
 
             document.getElementById('displayNum').innerHTML = textNum;
@@ -75,7 +75,7 @@
         }
 
         function cmdEquals(){
-            document.getElementById('displayNum').innerHTML = dispNum + parseInt(textNum);
+            document.getElementById('displayNum').innerHTML = dispNum + parseInt(textNum); // 2nd goes here
             console.log(dispNum);
         }
 
@@ -86,9 +86,10 @@
             document.getElementById('displayNum').innerHTML = "&nbsp;"; //&nbsp is added so that the h1 element on the body will exist/displayed.
         }
 
-        function cmdMultiply(){
+        function cmdMinus(){
             var newNum = parseInt(textNum);
-            dispNum = dispNum * newNum;
+            dispNum = newNum - dispNum;
+	    // dispNum *= -1;
             textNum = null;
             document.getElementById('displayNum').innerHTML = "&nbsp;";
         }
